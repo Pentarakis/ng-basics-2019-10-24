@@ -1,15 +1,27 @@
-<form>
+<mat-card>
 
-  <mat-form-field>
-    <input matInput placeholder="Name" [(ngModel)]="character.name" name="name">
-  </mat-form-field>
+  <mat-card-header>Edit Character</mat-card-header>
 
-  <mat-form-field>
-    <input matInput placeholder="Culture" [(ngModel)]="character.culture" name="culture">
-  </mat-form-field>
+  <mat-card-content>
+    <form>
 
-  <div>
-    <button>Add</button>
-  </div>
+      <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="character.name" name="name">
+      </mat-form-field>
 
-</form>
+      <br>
+
+      <mat-form-field>
+        <input matInput placeholder="Culture" [(ngModel)]="character.culture" name="culture">
+      </mat-form-field>
+
+      <br>
+
+      <div>
+        <button mat-raised-button color="primary">Add</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+</mat-card>
