@@ -25,4 +25,9 @@ export class BookListComponent implements OnInit {
     return this.books[this.books.length - 1].id + 1;
   }
 
+  save(book: Book) {
+    book.id = this.createId();
+    this.books.push(book);
+  }
+
 }

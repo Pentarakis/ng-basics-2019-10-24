@@ -1,5 +1,8 @@
 
-<ngb-book></ngb-book>
+<ngb-book
+  [book]="selectedBook"
+  (addNewBook)="save($event)"
+></ngb-book>
 
 <table>
   <thead>
