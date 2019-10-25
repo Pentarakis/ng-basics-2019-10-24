@@ -1,46 +1,23 @@
-<p [class.draft]="!isCompleted">{{getFirstBookName()}}</p>
-
-<button (click)="isCompleted = true">Complete</button>
-
 <form>
 
   <label>
     Name:
-    <input name="name">
+    <input name="name" [(ngModel)]="book.name">
   </label>
 
   <label>
     ISBN:
-    <input name="isbn">
+    <input name="isbn" [(ngModel)]="book.isbn">
   </label>
 
   <div>
-    <button>Save</button>
+    <button (click)="save()">Add</button>
   </div>
 
 </form>
 
 <br>
 
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>ISBN</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <tr *ngFor="let book of books" (click)="selectedBook = book">
-    <td>{{book.id}}</td>
-    <td>{{book.name}}</td>
-    <td>{{book.isbn}}</td>
-  </tr>
-  </tbody>
-
-</table>
-
-<p *ngIf="selectedBook">
-  Selected Book: {{selectedBook?.name}}
+<p *ngIf="book">
+  Selected Book: {{book?.name}}
 </p>

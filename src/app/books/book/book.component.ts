@@ -8,20 +8,17 @@ import { Book } from '../model/book';
 })
 export class BookComponent implements OnInit {
 
-  books: Book[] = [
-    {id: 3, name: 'A Storm of Swords', isbn: '978-0553106633'},
-    {id: 4, name: 'The Hedge Knight', isbn: '978-0976401100'},
-    {id: 5, name: 'A Feast for Crows', isbn: '978-0553801507'}
-  ];
-
-  isCompleted = false;
-
-  selectedBook: Book = null;
+  book: Book = new Book();
 
   constructor() { }
 
-  getFirstBookName() {
-    return this.books[0].name;
+  save() {
+  //   if (this.selectedBook.id) {
+  //     this.selectedBook = new Book();
+  //   } else {
+  //     this.selectedBook.id = this.createId();
+  //     this.books.push(this.selectedBook);
+  //   }
   }
 
   ngOnInit() {
