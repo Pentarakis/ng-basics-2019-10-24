@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Character } from './model/character';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class CharacterService {
     return this.characters;
   }
 
-  read(id: number): Character {
-    return this.characters.find(character => character.id === id);
+  read(id: number): Observable<Character> {
+    return fetch('http://localhost:3000/characters/' + id);
   }
 }
