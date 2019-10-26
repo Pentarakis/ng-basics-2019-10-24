@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicLayoutModule } from './basic-layout/basic-layout.module';
 import { BooksModule } from './books/books.module';
-import { CharactersModule } from './characters/characters.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     BasicLayoutModule,
     BooksModule,
-    CharactersModule,
     HttpClientModule
   ],
   providers: [],

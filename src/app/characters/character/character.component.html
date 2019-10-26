@@ -3,22 +3,23 @@
   <mat-card-header>Edit Character</mat-card-header>
 
   <mat-card-content>
-    <form>
+    <form [formGroup]="form">
 
       <mat-form-field>
-        <input matInput placeholder="Name" [(ngModel)]="character.name" name="name">
+        <input matInput placeholder="Name" formControlName="name" name="name">
+        <mat-error *ngIf="form.get('name').hasError('required')">Required!</mat-error>
       </mat-form-field>
 
       <br>
 
       <mat-form-field>
-        <input matInput placeholder="Culture" [(ngModel)]="character.culture" name="culture">
+        <input matInput placeholder="Culture" formControlName="culture" name="culture">
       </mat-form-field>
 
       <br>
 
       <div>
-        <button mat-raised-button color="primary">Add</button>
+        <button mat-raised-button color="primary" (click)="save()">Add</button>
       </div>
 
     </form>

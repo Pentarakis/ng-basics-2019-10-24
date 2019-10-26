@@ -3,8 +3,12 @@ table {
   tr:hover {
     background-color: #3f51b5;
     cursor: pointer;
+
     .mat-cell {
       color: white;
     }
+  }
+  td {
+    color: red
   }
 }

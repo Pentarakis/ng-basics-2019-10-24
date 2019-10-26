@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Character } from '../model/character';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from '../character.service';
 import { filter, pluck, switchMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ngb-character',
@@ -12,11 +12,14 @@ import { Subject } from 'rxjs';
 })
 export class CharacterComponent implements OnInit, OnDestroy {
 
-  character: Character = new Character();
   isCreateMode = true;
   destroy: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private route: ActivatedRoute, private characterService: CharacterService) {
+  form: FormGroup;
+
+  constructor(private route: ActivatedRoute, private characterService: CharacterService, private fb: FormBuilder) {
+
+    this.initForm();
 
     this.route.params
       .pipe(
@@ -27,7 +30,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
       )
       .subscribe(character => {
         if (character) {
-          this.character = character;
+          this.form.patchValue(character);
         } else {
           alert('Character not found!');
         }
@@ -42,4 +45,16 @@ export class CharacterComponent implements OnInit, OnDestroy {
     this.destroy.complete();
   }
 
+  private initForm() {
+    this.form = this.fb.group({
+      id: null,
+      name: [null, Validators.required],
+      culture: null
+    });
+  }
+
+  save() {
+    this.characterService.update(this.form.getRawValue())
+      .subscribe();
+  }
 }

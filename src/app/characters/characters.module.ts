@@ -2,22 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterComponent } from './character/character.component';
 import { CharacterListComponent } from './character-list/character-list.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatTableModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import { CharactersRoutingModule } from './characters-routing/characters-routing.module';
 
 @NgModule({
   declarations: [CharacterComponent, CharacterListComponent],
   exports: [CharacterComponent, CharacterListComponent],
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
     MatButtonModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    CharactersRoutingModule
   ]
 })
 export class CharactersModule { }
