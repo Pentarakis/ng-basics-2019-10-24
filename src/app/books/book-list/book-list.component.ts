@@ -14,6 +14,8 @@ export class BookListComponent implements OnInit {
     {id: 5, name: 'A Feast for Crows', isbn: '978-0553801507'}
   ];
 
+  displayedColumns: string[] = ['id', 'name', 'isbn'];
+
   selectedBook: Book = new Book();
 
   constructor() { }

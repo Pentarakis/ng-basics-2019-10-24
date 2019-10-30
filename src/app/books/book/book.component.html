@@ -1,23 +1,22 @@
-<form>
+<mat-card>
 
-  <label>
-    Name:
-    <input name="name" [(ngModel)]="book.name">
-  </label>
+  <mat-card-header>Edit Book</mat-card-header>
 
-  <label>
-    ISBN:
-    <input name="isbn" [(ngModel)]="book.isbn">
-  </label>
+  <mat-card-content>
+    <form>
 
-  <div>
-    <button>Add</button>
-  </div>
+      <mat-form-field>
+        <input #name="ngModel" matInput name="name" placeholder="Name" [(ngModel)]="book.name" required>
+        <mat-error *ngIf="name.errors?.required">Required!</mat-error>
+      </mat-form-field>
 
-</form>
+      <br>
 
-<br>
+      <mat-form-field>
+        <input matInput name="isbn" [(ngModel)]="book.isbn" placeholder="ISBN">
+      </mat-form-field>
 
-<p *ngIf="book">
-  Selected Book: {{book?.name}}
-</p>
+    </form>
+  </mat-card-content>
+
+</mat-card>
